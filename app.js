@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose =  require('mongoose');
-mongoose.connect('mongodb://localhost:27017/noteddb', {  
+mongoose.connect(process.env.NOTED_DATABASE || 'mongodb://localhost:27017/noteddb', {  
   useNewUrlParser: true
 });
 
@@ -15,6 +15,12 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
