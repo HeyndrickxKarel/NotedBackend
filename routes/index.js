@@ -6,7 +6,14 @@ let Noter = mongoose.model('Noter');
 router.get('/', function(req, res, next){
   return res.send('Hi!');
 })
-
+router.get('/allnoters', function(req,res,next){
+  Noter.find(function(err, noters){
+    if (err){
+      return next(err);
+    }
+    return res.json(noters);
+  });
+})
 //The route to create a noter
 router.post('/API/noters/', function(req, res, next){
   let noter = new Noter({
