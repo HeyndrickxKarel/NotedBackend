@@ -5,10 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose =  require('mongoose');
-mongoose.createConnection(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
+mongoose.connect(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
   useNewUrlParser: true
 });
-
+//console.log(mongoose.connect('mongodb://localhost:27017/noteddb'), {useNewUrlParser: true})
 require('./models/Noter');
 
 var indexRouter = require('./routes/index');
