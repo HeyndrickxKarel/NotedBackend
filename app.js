@@ -8,7 +8,7 @@ var mongoose =  require('mongoose');
 mongoose.connect(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
   useNewUrlParser: true
 });
-//console.log(mongoose.connect('mongodb://localhost:27017/noteddb'), {useNewUrlParser: true})
+
 require('./models/Noter');
 
 var indexRouter = require('./routes/index');
