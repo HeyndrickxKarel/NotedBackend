@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose =  require('mongoose');
-mongoose.connect( process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
+mongoose.connect(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
   useNewUrlParser: true
 });
 
@@ -14,10 +14,6 @@ require('./models/Noter');
 var indexRouter = require('./routes/index');
 
 var app = express();
-/*
-let cors = require('cors');
-app.use(cors({origin: "*"}))
-*/
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
