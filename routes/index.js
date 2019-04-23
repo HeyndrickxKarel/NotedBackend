@@ -3,6 +3,10 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let Noter = mongoose.model('Noter');
 
+router.get('/', function(req, res, next){
+  return res.send('Hi!');
+})
+
 //The route to create a noter
 router.post('/API/noters/', function(req, res, next){
   let noter = new Noter({
