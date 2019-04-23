@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose =  require('mongoose');
-mongoose.connect(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
+mongoose.createConnection(process.env.NOTED_DATABASE  ||  'mongodb://localhost:27017/noteddb', {  
   useNewUrlParser: true
 });
 
